@@ -53,6 +53,6 @@ docker-compose up --build
 - API Docs: http://localhost:8000/docs
 
 ### Next Steps:
-1. Train the models: `python backend/ml/training/train_model.py --model cnn --epochs 10 --export`
+1. Train the models: `python3 backend/ml/training/train_model.py --model cnn --epochs 10 --export` and `python3 backend/ml/training/train_model.py --model vit --epochs 10 --export`
 2. Place trained ONNX models in `backend/models/`
 3. Set `FALLBACK_MODE=false` in production

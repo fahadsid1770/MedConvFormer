@@ -88,7 +88,7 @@ class InferenceService:
 
             self.cnn_session = ort.InferenceSession(
                 str(cnn_path),
-                providers=['CUDAExecutionProvider', 'CPUExecutionProvider']
+                providers=['CPUExecutionProvider']
             )
             logger.info(f"Loaded CNN model from {cnn_path}")
 
@@ -101,7 +101,7 @@ class InferenceService:
 
             self.vit_session = ort.InferenceSession(
                 str(vit_path),
-                providers=['CUDAExecutionProvider', 'CPUExecutionProvider']
+                providers=['CPUExecutionProvider']
             )
             logger.info(f"Loaded ViT model from {vit_path}")
             
@@ -152,8 +152,8 @@ class InferenceService:
         """Preprocess single image for inference"""
         # Use validation preprocessing (no augmentations)
         tensor = self.preprocessor.preprocess_single(image, is_training=False)
-        # Convert to numpy and add batch dimension
-        return tensor.numpy()
+        # Convert to numpy and add batch dimension (1, C, H, W) for ONNX
+        return np.expand_dims(tensor.numpy(), axis=0)
 
     def _run_cnn_inference(self, input_tensor: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
         """Run CNN inference and return probabilities and confidence"""

@@ -21,8 +21,8 @@ class Settings(BaseSettings):
     REDIS_ENABLED: bool = os.getenv("REDIS_ENABLED", "false").lower() == "true"
     CACHE_TTL: int = 3600  # 1 hour
 
-    # Fallback mode (when models not available)
-    FALLBACK_MODE: bool = os.getenv("FALLBACK_MODE", "true").lower() == "true"
+    # Fallback mode (when models not available) - Default to false to load models
+    FALLBACK_MODE: bool = os.getenv("FALLBACK_MODE", "false").lower() == "true"
 
     # File upload
     MAX_FILE_SIZE: int = 10 * 1024 * 1024  # 10MB
