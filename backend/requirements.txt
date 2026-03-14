@@ -1,0 +1,22 @@
+# Core API
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# ML Inference (minimal)
+torch==2.2.0
+torchvision==0.17.0
+timm==0.9.12
+pillow==10.2.0
+numpy==1.26.3
+onnxruntime==1.16.3
+opencv-python-headless==4.9.0.80
+
+# Optional: Redis for caching
+redis==5.0.1
+
+# Monitoring
+psutil==5.9.6
+prometheus-client==0.19.0
