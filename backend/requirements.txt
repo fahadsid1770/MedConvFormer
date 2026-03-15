@@ -1,22 +1,22 @@
 # Core API
-fastapi==0.109.0
-uvicorn[standard]==0.27.0
-python-multipart==0.0.6
-pydantic==2.5.3
-pydantic-settings==2.1.0
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+pydantic-settings
 
-# ML Inference (minimal)
-torch==2.2.0
-torchvision==0.17.0
-timm==0.9.12
-pillow==10.2.0
-numpy==1.26.3
-onnx==1.16.0
-onnxruntime==1.16.3
-opencv-python-headless==4.9.0.80
+# ML Inference - Install CUDA-enabled PyTorch from official index
+timm
+pillow
+numpy
+onnx
+onnxruntime
+opencv-python-headless
+
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 
 # Optional: Redis for caching
-redis==5.0.1
+redis
 
 # Monitoring
 psutil==5.9.6

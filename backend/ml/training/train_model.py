@@ -308,7 +308,7 @@ if __name__ == "__main__":
     parser.add_argument('--model', type=str, default='cnn', choices=['cnn', 'vit'],
                        help='Model to train')
     parser.add_argument('--epochs', type=int, default=5, help='Number of epochs')
-    parser.add_argument('--batch-size', type=int, default=32, help='Batch size')
+    parser.add_argument('--batch-size', type=int, default=8, help='Batch size')
     parser.add_argument('--lr', type=float, default=1e-4, help='Learning rate')
     parser.add_argument('--img-size', type=int, default=224, help='Image size')
     parser.add_argument('--export', action='store_true', help='Export to ONNX after training')

@@ -12,9 +12,17 @@ services:
       - FALLBACK_MODE=true
       - REDIS_ENABLED=false
       - LOG_LEVEL=INFO
+      - DATA_ROOT=/app/data
     volumes:
       - ./backend/models:/app/models
       - ./data:/app/data
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]

@@ -13,11 +13,16 @@ RUN apt-get update && apt-get install -y \
     libxrender-dev \
     && rm -rf /var/lib/apt/lists/*
 
+# Install CUDA-enabled PyTorch (use cu121 for CUDA 12.1)
+# If building for CPU-only, use: torch==2.2.0+cpu --index-url https://download.pytorch.org/whl/cpu
+RUN pip install --no-cache-dir torch==2.2.0 torchvision==0.17.0 --index-url https://download.pytorch.org/whl/cu121
+
 # Copy requirements first for caching
 COPY requirements.txt .
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Install remaining Python dependencies (except torch/torchvision which are already installed)
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip uninstall -y torch torchvision 2>/dev/null || true
 
 # Copy application code
 COPY . .
