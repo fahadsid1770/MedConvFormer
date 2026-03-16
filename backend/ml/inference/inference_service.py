@@ -25,7 +25,7 @@ class InferenceService:
     """
 
     def __init__(self):
-        self.class_names = ['Normal', 'Pneumonia', 'COVID-19']
+        self.class_names = ['COVID-19', 'Normal', 'Pneumonia']
         self.confidence_threshold = settings.CONFIDENCE_THRESHOLD
         
         # Track if we're in fallback mode
