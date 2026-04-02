@@ -1,4 +1,4 @@
-# Hybrid CNN-Transformer DL system to Distinguish COVID-19, Normal, and Pneumonia from chest X-ray images
+# MedConvFormer: Hybrid CNN-Transformer DL system to Distinguish COVID-19, Normal, and Pneumonia from chest X-ray images
 
 A hybrid CNN-Transformer deep learning system for distinguishing COVID-19, Normal, and Pneumonia from chest X-ray images.
 
